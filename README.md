@@ -5,10 +5,10 @@
 Deblazer is the C# ORM written and used by [Digitec Galaxus](https://github.com/DigitecGalaxus) it has query language similiar to LINQ.
 
 ## Getting Started
-Install the latest package from Nuget [<insert latest release url here>](https://gogole.ch)
+Install the latest package from [Nuget](https://www.nuget.org/packages/Deblazer/)
 
 ### Usuage
-Use the artifacts tooling [<Insert link here>](https://) to generate the necessary artifacts classes.
+Use the [artifacts tooling](https://github.com/DigitecGalaxus/Deblazer.Artifacts) to generate the necessary artifacts classes.
 ```cs
 var db = new Db("My Connection String");
 
