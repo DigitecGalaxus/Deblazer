@@ -68,6 +68,16 @@ namespace Dg.Deblazer.Visitors
             return PrimitiveTypeFiller.GetNullableDecimal(reader, index++);
         }
 
+        public decimal GetMoney()
+        {
+            return PrimitiveTypeFiller.GetMoney(reader, index++);
+        }
+
+        public decimal? GetNullableMoney()
+        {
+            return PrimitiveTypeFiller.GetNullableMoney(reader, index++);
+        }
+
         public DateTimeOffset GetDateTimeOffset()
         {
             return PrimitiveTypeFiller.GetDateTimeOffset(reader, index++);

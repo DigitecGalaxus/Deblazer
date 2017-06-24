@@ -104,6 +104,22 @@ namespace Dg.Deblazer.Read
             return value;
         }
 
+        public static decimal GetMoney(IDataRecord reader, int index)
+        {
+            if (!(reader is SqlDataReader))
+            {
+                return reader.GetDecimal(index);
+            }
+
+            var sqlDataReader = reader as SqlDataReader;
+            return (decimal)sqlDataReader.GetSqlMoney(index);
+        }
+
+        public static decimal? GetNullableMoney(IDataRecord reader, int index)
+        {
+            return reader.IsDBNull(index) ? (decimal?)null : GetMoney(reader, index);
+        }
+
         public static long GetLong(IDataRecord reader, int index)
         {
             return reader.GetInt64(index);
