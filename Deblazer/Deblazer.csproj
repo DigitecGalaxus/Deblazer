@@ -221,7 +221,7 @@
     <Compile Include="SqlGeneration\QueryElMember.cs" />
     <Compile Include="SqlGeneration\QueryElMemberExtensions.cs" />
     <Compile Include="SqlGeneration\QueryElMemberId.cs" />
-    <Compile Include="SqlGeneration\QueryElMemberIdNullable.cs" />
+    <Compile Include="SqlGeneration\QueryElMemberNullableId.cs" />
     <Compile Include="SqlGeneration\QueryElMemberLongId.cs" />
     <Compile Include="SqlGeneration\QueryElMemberStruct.cs" />
     <Compile Include="SqlGeneration\QueryElOperator.cs" />

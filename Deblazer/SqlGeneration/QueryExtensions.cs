@@ -70,7 +70,7 @@ namespace Dg.Deblazer.SqlGeneration
 
         public static QueryJoinElements<TQuery, TOriginal, Id<TOther>> Join<TBack, TOriginal, TCurrent, TWrapper, TQuery, TOther>(
             this Query<TBack, TOriginal, TCurrent, TWrapper, TQuery> query,
-            Func<TWrapper, QueryElMemberIdNullable<TOther>> func,
+            Func<TWrapper, QueryElMemberNullableId<TOther>> func,
             IEnumerable<int> elements,
             JoinType joinType = JoinType.Inner)
             where TBack : QueryBase
@@ -86,7 +86,7 @@ namespace Dg.Deblazer.SqlGeneration
 
         public static QueryJoinElements<TQuery, TOriginal, Id<TOther>> Join<TBack, TOriginal, TCurrent, TWrapper, TQuery, TOther>(
     this Query<TBack, TOriginal, TCurrent, TWrapper, TQuery> query,
-    Func<TWrapper, QueryElMemberIdNullable<TOther>> func,
+    Func<TWrapper, QueryElMemberNullableId<TOther>> func,
     IEnumerable<Id<TOther>> elements,
     JoinType joinType = JoinType.Inner)
     where TBack : QueryBase
@@ -102,7 +102,7 @@ namespace Dg.Deblazer.SqlGeneration
 
         public static QueryJoinElements<TQuery, TOriginal, Id<TOther>> Join<TBack, TOriginal, TCurrent, TWrapper, TQuery, TOther>(
             this Query<TBack, TOriginal, TCurrent, TWrapper, TQuery> query,
-            Func<TWrapper, QueryElMemberIdNullable<TOther>> func,
+            Func<TWrapper, QueryElMemberNullableId<TOther>> func,
             IEnumerable<int?> elements,
             JoinType joinType = JoinType.Inner)
             where TBack : QueryBase

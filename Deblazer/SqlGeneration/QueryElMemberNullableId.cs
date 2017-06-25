@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Dg.Deblazer.SqlGeneration
 {
-    public class QueryElMemberIdNullable<TEntity> : QueryElMember<Id<TEntity>?> where TEntity : IId
+    public class QueryElMemberNullableId<TEntity> : QueryElMember<Id<TEntity>?> where TEntity : IId
     {
-        public QueryElMemberIdNullable(string c) : base(c)
+        public QueryElMemberNullableId(string c) : base(c)
         {
         }
 
@@ -32,22 +32,22 @@ namespace Dg.Deblazer.SqlGeneration
             return base.GetHashCode();
         }
 
-        public static QueryElOperator<int> operator ==(QueryElMemberIdNullable<TEntity> x, int y)
+        public static QueryElOperator<int> operator ==(QueryElMemberNullableId<TEntity> x, int y)
         {
             return new QueryElOperator<int>("({0}={1})", x, QueryConversionHelper.ConvertParameter(y));
         }
 
-        public static QueryElOperator<int> operator !=(QueryElMemberIdNullable<TEntity> x, int y)
+        public static QueryElOperator<int> operator !=(QueryElMemberNullableId<TEntity> x, int y)
         {
             return new QueryElOperator<int>("({0}<>{1})", x, QueryConversionHelper.ConvertParameter(y));
         }
 
-        public static QueryElOperator<int> operator ==(QueryElMemberIdNullable<TEntity> x, Id<TEntity>? y)
+        public static QueryElOperator<int> operator ==(QueryElMemberNullableId<TEntity> x, Id<TEntity>? y)
         {
             return y.HasValue ? x == (int)y : new QueryElOperator<int>("({0} IS NULL)", x);
         }
 
-        public static QueryElOperator<int> operator !=(QueryElMemberIdNullable<TEntity> x, Id<TEntity>? y)
+        public static QueryElOperator<int> operator !=(QueryElMemberNullableId<TEntity> x, Id<TEntity>? y)
         {
             return y.HasValue ? x != (int)y : new QueryElOperator<int>("({0} IS NOT NULL)", x);
         }
