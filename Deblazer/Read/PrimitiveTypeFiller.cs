@@ -108,12 +108,11 @@ namespace Dg.Deblazer.Read
         {
             var sqlDataReader = reader as SqlDataReader;
 
-            if (sqlDataReader != null)
+            if (sqlDataReader == null)
             {
                 return reader.GetDecimal(index);
             }
 
-            var sqlDataReader = reader as SqlDataReader;
             return (decimal)sqlDataReader.GetSqlMoney(index);
         }
 
