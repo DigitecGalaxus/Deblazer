@@ -106,7 +106,9 @@ namespace Dg.Deblazer.Read
 
         public static decimal GetMoney(IDataRecord reader, int index)
         {
-            if (!(reader is SqlDataReader))
+            var sqlDataReader = reader as SqlDataReader;
+
+            if (sqlDataReader != null)
             {
                 return reader.GetDecimal(index);
             }
@@ -161,13 +163,13 @@ namespace Dg.Deblazer.Read
         public static decimal? GetNullableDecimal(IDataRecord reader, int index)
         {
             decimal? result;
-            if (!(reader is SqlDataReader))
+            var sqlDataReader = reader as SqlDataReader;
+            if (sqlDataReader == null)
             {
                 // if for some reason we are not using a SqlDataReader anymore, we fallback to default method (useful for tests)
                 return reader.IsDBNull(index) ? default(decimal?) : reader.GetDecimal(index);
             }
 
-            var sqlDataReader = reader as SqlDataReader;
             var sqlDecimal = sqlDataReader.GetSqlDecimal(index);
             result = ToDecimal(sqlDecimal);
 
@@ -214,12 +216,12 @@ namespace Dg.Deblazer.Read
 
         public static DateTimeOffset GetDateTimeOffset(IDataRecord reader, int index)
         {
-            if (!(reader is SqlDataReader))
+            var sqlDataReader = reader as SqlDataReader;
+            if (sqlDataReader == null)
             {
                 throw new NotSupportedException("DateTimeOffset is only supported with SqlDataReader at this point.");
             }
 
-            var sqlDataReader = reader as SqlDataReader;
             return sqlDataReader.GetDateTimeOffset(index);
         }
 
@@ -257,12 +259,12 @@ namespace Dg.Deblazer.Read
 
         public static TimeSpan GetTimeSpan(IDataRecord reader, int index)
         {
-            if (!(reader is SqlDataReader))
+            var sqlDataReader = reader as SqlDataReader;
+            if (sqlDataReader == null)
             {
                 throw new NotSupportedException("TimeSpan is only supported with SqlDataReader at this point.");
             }
 
-            var sqlDataReader = reader as SqlDataReader;
             return sqlDataReader.GetTimeSpan(index++);
         }
 
